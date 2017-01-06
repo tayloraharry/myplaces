@@ -1,4 +1,7 @@
-<form   class="col-md-4 col-md-offset-4">
+<div class="grow col-md-4 col-md-offset-4">
+<img id="profile-photo" type="button" data-toggle="modal" data-target="#image-changer" class="text-center center-block" alt="your image" ng-src="{{myinfo.profile_photo}}"/>
+</div>
+<form ng-show="editing"  class="col-md-4 col-md-offset-4">
   <div class="form-group">
     <label>First Name</label>
     <input type="text" class="form-control" ng-model="myinfo.firstname">
@@ -15,10 +18,10 @@
     <label>Phone Number</label>
     <input type="text" class="form-control" ng-model="myinfo.phonenumber">
   </div>
-<button type="submit" ng-click="edit(); editUserDetails(myinfo);" class="btn-success">Save changes</button>
+<button type="submit" ng-click="edit(); editUserDetails(myinfo)" class="btn-success">Save changes</button>
 <button type="submit" ng-click="edit()" class="btn-danger">Cancel</button>
 </form>
-<!-- <form ng-show="editing" class="col-md-4 col-md-offset-4">
+<form ng-show="!editing" class="col-md-4 col-md-offset-4">
   <div class="form-group">
     <label>First Name</label>
     <input type="text" class="form-control" ng-model="myinfo.firstname" readonly>
@@ -35,6 +38,26 @@
     <label>Phone Number</label>
     <input type="text" class="form-control" ng-model="myinfo.phonenumber" readonly>
   </div>
-<button type="submit" ng-click="edit(); editUserDetails(myinfo);" class="btn-success">Save changes</button>
-<button type="submit" ng-click="edit()" class="btn-danger">Cancel</button>
-</form> -->
+<button type="submit" ng-click="edit();" class="btn-success">Edit</button>
+</form>
+<div class="modal" id="image-changer" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true" ng-model="selectedLocation">
+   <div class="modal-dialog">
+      <div class="modal-content">
+         <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="text-danger fa fa-times"></i></button>
+            <h4><strong>Edit profile picture</strong></h4>
+         </div>
+         <div class="modal-body">
+            <div class="col-md-3">
+                <img id="editing-profile-image">
+               <input class="text-center center-block" ng-model="userProfile.photo" type='file' />
+            </div>
+            <div class="clearfix"></div>
+         </div>
+         <div class="modal-footer">
+        <button ng-click="savePhoto()" data-dismiss="modal" type="submit" class="btn btn-default">Update</button>
+        <button data-dismiss="modal" type="button" class="btn btn-default">Cancel</button>
+         </div>
+      </div>
+   </div>
+</div>

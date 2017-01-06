@@ -2,7 +2,7 @@
 
 app.controller("ContactsCtrl", function($scope, $rootScope, $timeout, $location, $routeParams, AuthFactory, UserFactory, GoogleMapsFactory, ContactsFactory) {
 $scope.contacts = [];
-$scope.selectedContact;
+$scope.selectedContact = "";
 
 getContacts();
 
@@ -27,7 +27,7 @@ $scope.editContact = function(contact) {
   ContactsFactory.editContact(contact).then(function() {
     alertify.success('Contact updated.');
     getContacts();
-  })
+  });
 };
 
 $scope.addContact = function(contact) {

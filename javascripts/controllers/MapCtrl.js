@@ -1,8 +1,8 @@
 "use strict";
 
 app.controller("MapCtrl", function($scope, $rootScope, $timeout, $location, $routeParams, AuthFactory, UserFactory, GoogleMapsFactory) {
-    $scope.lat;
-    $scope.lng;
+    $scope.lat = "";
+    $scope.lng = "";
     $scope.loading = true;
     $scope.selectedPlace = {};
     $scope.myplaces = [];
@@ -87,12 +87,12 @@ app.controller("MapCtrl", function($scope, $rootScope, $timeout, $location, $rou
                     locPhoto = "http://www.freeiconspng.com/uploads/no-image-icon-15.png";
                 }
                 var price_level;
-                if (result.price_level == 0) {price_level = "Free";}
+                if (result.price_level === 0) {price_level = "Free";}
                 else if (result.price_level == 1) {price_level = "$";}
-                else if (result.price_level == 2) {price_level = "$$"}
-                else if (result.price_level == 3) {price_level = "$$$"}
-                else if (result.price_level == 4) {price_level = "$$$$"}
-                else {price_level = "N/A"};
+                else if (result.price_level == 2) {price_level = "$$";}
+                else if (result.price_level == 3) {price_level = "$$$";}
+                else if (result.price_level == 4) {price_level = "$$$$";}
+                else {price_level = "N/A";}
                 var marker = new google.maps.Marker({
                     map: map,
                     place: {
@@ -148,7 +148,7 @@ app.controller("MapCtrl", function($scope, $rootScope, $timeout, $location, $rou
     GoogleMapsFactory.getLocations($rootScope.user.uid).then(function(response) {
     response.forEach(function(place) {
         $scope.myplaces.push(place.placeid);
-    })
+    });
     });
     }
 
@@ -158,7 +158,7 @@ app.controller("MapCtrl", function($scope, $rootScope, $timeout, $location, $rou
         let index = $scope.markers.indexOf(newMyPlace);
         if (index > -1) {
             $scope.markers.splice(index, 1);
-        };
+        }
         GoogleMapsFactory.addLocation($rootScope.user.uid, newMyPlace).then(function() {
              alertify.success('new myPlace added.');
 
@@ -181,7 +181,7 @@ app.controller("MapCtrl", function($scope, $rootScope, $timeout, $location, $rou
               $scope.lng = position.coords.longitude;
               initialize();
     });
-};
+}
 
 
 });
