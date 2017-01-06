@@ -3,7 +3,7 @@
 app.controller("PlacesCtrl", function($scope, $rootScope, $location, $routeParams, AuthFactory, UserFactory, GoogleMapsFactory, ContactsFactory) {
 $scope.myplaces = [];
 $scope.selectedPlace = {};
-$scope.contacts = "";
+$scope.contacts;
 $scope.IsHidden = true;
 $scope.ShowHide = function () {
 $scope.IsHidden = $scope.IsHidden ? false : true;
@@ -22,6 +22,9 @@ ContactsFactory.getContacts($rootScope.user.uid).then(function(response) {
 $scope.contacts = response;
 });
 }
+
+
+
 $scope.addNewContact = function() {
  ContactsFactory.addContact($rootScope.user.uid, $scope.selectedPlace.recipient_name, $scope.selectedPlace.recipient_phone).then(function() {
  });

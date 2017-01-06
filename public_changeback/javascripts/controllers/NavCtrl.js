@@ -11,15 +11,15 @@ app.controller("NavCtrl", ($scope) => {
     url: "#/map"
   },
     {
-    name:"myPlaces",
+    name:"My Places",
     url: "#/myplaces"
   },
     {
-    name:"Contacts",
+    name:"My Contacts",
     url: "#/mycontacts"
   },
     {
-    name:"Profile",
+    name:"My Profile",
     url: "#/myprofile"
   }
   // ,

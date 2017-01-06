@@ -1,33 +1,9 @@
-#site-logo {
-  position: absolute;
-  left: 0;
-  right: 0;
-  margin-left: auto;
-  margin-right: auto;
-  height: 3em;
-  padding-top: 0.5em; }
-
-#nav {
-  border-bottom: 1px solid black;
-  background-color: #ff8080; }
-
 ul {
   list-style-type: none;
   padding: 0; }
 
 .table-details {
   padding-top: 1em; }
-
-.table-body-cust,
-.table-body-cust tr {
-  border: .2em solid black; }
-
-.table-head-cust {
-  background-color: ivory;
-  border: .2em solid black; }
-
-.table-head-cust tr th {
-  text-align: center; }
 
 #map {
   position: absolute;
@@ -52,14 +28,6 @@ ul {
 .reviews {
   padding-bottom: 2em; }
 
-.center-block {
-  margin-left: auto;
-  margin-right: auto;
-  display: block; }
-
-.text-center {
-  text-align: center; }
-
 #from {
   position: absolute;
   top: 70px;
@@ -68,12 +36,6 @@ ul {
 #contacts-container {
   border: .2em solid black; }
 
-#profile-photo {
-  border-radius: 100%;
-  height: 15em;
-  width: 15em;
-  border: .13em solid black; }
-
 .loc-label-data {
   padding-right: .5em; }
 
@@ -81,17 +43,13 @@ ul {
 .loc-detail-data {
   padding-bottom: 1em; }
 
-.navitem {
-  color: black;
-  font-size: 1.08em; }
-
 #places {
   position: absolute;
   top: 0;
   bottom: 0;
   left: 0;
-  margin-top: 52px;
-  background-color: ivory;
+  margin-top: 50px;
+  background-color: lightgrey;
   border-right: 3px solid black;
   color: black;
   overflow: auto; }
@@ -142,7 +100,10 @@ ul {
   list-style: none; }
 
 .angular-input-stars > li {
+  font-size: 17px;
   display: inline-block;
+  padding-right: 5px;
+  padding-left: 5px;
   cursor: pointer; }
 
 .angular-input-stars > li i.readonly {
@@ -154,8 +115,3 @@ ul {
 
 .angular-input-stars > li .active.angular-input-stars-hover {
   text-shadow: black 0 0 3px; }
-
-.grow img:hover {
-  -webkit-filter: blur(4px);
-  /* Chrome, Safari, Opera */
-  filter: blur(4px); }

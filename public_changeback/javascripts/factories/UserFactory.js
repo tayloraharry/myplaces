@@ -7,8 +7,7 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
       $http.post(`${FIREBASE_CONFIG.databaseURL}/users.json`,
         JSON.stringify({
           uid: authData.uid,
-          username: authData.username,
-          profile_photo: "https://www.google.com/url?sa=i&rct=j&q=&esrc=s&source=images&cd=&cad=rja&uact=8&ved=0ahUKEwj39aeeoJzRAhUp0oMKHbVoC_IQjRwIBw&url=http%3A%2F%2Fwww.techrepublic.com%2Farticle%2Fpro-tip-manage-wi-fi-with-terminal-commands-on-os-x%2F&psig=AFQjCNFUx1Vvnbp3kd_ShTXIXlOkywat1A&ust=1483198797727827"
+          username: authData.username
         })
       )
       .success(function(storedUserSuccess){
@@ -48,15 +47,14 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
     });
   };
 
-  var editUser = function(editedUserId, photoURL, editUserInfo){
+  var editUser = function(editedUserId, editUserInfo){
     return $q((resolve, reject)=> {
       $http.put(`${FIREBASE_CONFIG.databaseURL}/users/${editedUserId}.json`, JSON.stringify({
          uid: editedUserId,
          firstname: editUserInfo.firstname,
          lastname: editUserInfo.lastname,
          phonenumber: editUserInfo.phonenumber,
-         email: editUserInfo.email,
-         profile_photo: photoURL
+         email: editUserInfo.email
         })
       ).success(function(editResponse) {
         resolve(editResponse);
@@ -72,6 +70,5 @@ app.factory("UserFactory", function($q, $http, FIREBASE_CONFIG) {
             getUser:getUser,
             getUserDetails:getUserDetails,
             editUser:editUser
-
           };
 });
