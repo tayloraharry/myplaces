@@ -159,3 +159,7 @@ ul {
   -webkit-filter: blur(4px);
   /* Chrome, Safari, Opera */
   filter: blur(4px); }
+
+#editing-profile-image {
+  height: 400px;
+  width: 400px; }
