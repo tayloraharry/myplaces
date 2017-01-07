@@ -97,8 +97,8 @@
     </div>
       <div class="modal-body">
       <select ng-model="selectedContact" ng-options="contact as (contact.firstname + ' ' + contact.lastname + ' (' + contact.phone + ')') for contact in contacts"></select>
-        <button ng-click="sendText(selectedContact)" data-toggle="modal" data-target="#qrcode" type="button" class="btn btn-default">Generate myPlaces invite</button>
-        <button data-dismiss="modal" type="submit" class="btn btn-default">Cancel</button>
+        <button ng-click="sendText(selectedContact)" data-toggle="modal" data-target="#qrcode" type="button" class="btn btn-success">Generate myPlaces invite</button>
+        <button data-dismiss="modal" type="submit" class="btn btn-danger">Cancel</button>
       </div>
     </div>
   </div>
@@ -109,8 +109,7 @@
   <div class="modal-header">
    <span>Use a QR code reader app with your smart phone and send your myPlaces invite!</span><button type="button" class="close" data-dismiss="modal" aria-hidden="true"><i class="text-danger fa fa-times"></i></button>
   </div>
-
-      <img src='https://api.qrserver.com/v1/create-qr-code/?size=590x590&amp;ecc=L&amp;qzone=1&amp;data=SMSTO%3A%2B1{{selectedContact.phone}}%3AHey, meet me at {{selectedPlace.title}}.  The address is {{selectedPlace.address}}.' alt="SMS QR code">
+<img src='https://api.qrserver.com/v1/create-qr-code/?size=590x590&amp;ecc=L&amp;qzone=1&amp;data=SMSTO%3A%2B1{{selectedContact.phone}}%3AHey, meet me at {{selectedPlace.title}}.  The address is {{selectedPlace.address}}.' alt="SMS QR code">
   </div>
   </div>
 </div>

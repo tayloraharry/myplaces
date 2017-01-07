@@ -46,7 +46,7 @@ $scope.savePhoto = function() {
     UserFactory.editUser($rootScope.user.uid, $scope.newPhotoURL, $scope.myinfo).then(function() {
       alertify.success("Profile image updated.");
     });
-}
+};
 
 
 
